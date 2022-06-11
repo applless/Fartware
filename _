@@ -1,11 +1,16 @@
-
-
-
-
-
-
-
-
+local MainEvent = game.ReplicatedStorage.MainEvent;
+local Niggers = { "OneMoreTime","TeleportDetect","CHECKER_1" }
+local Hook = nil
+Hook = hookmetamethod(game, "__namecall", function(...)
+	local Args = { ... }
+	local self = Args[1]
+	local namecall = getnamecallmethod()
+	local calling = getcallingscript()
+	if namecall == "FireServer" and self == MainEvent and table.find(Niggers, Args[2]) then
+		return nil
+	end
+	return Hook(...)
+end)
 
 
 
